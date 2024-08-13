@@ -1,48 +1,37 @@
-# Tarea: Crear una Aplicación de Recetas de Cocina con React
+# Recipes React
 
-## Objetivo
+Simple aplicación web que permite crear y eliminar recetas. Cada receta consiste en un título y una descripción.
 
-Crear una aplicación en React que permita a los usuarios gestionar recetas de cocina. La aplicación debe utilizar los hooks `useState`, `useEffect`, y `useContext` para manejar el estado y efectos secundarios.
+## Características
 
-## Requisitos Funcionales
+- **Crear Recetas:** Los usuarios pueden agregar nuevas recetas proporcionando un título y una descripción.
+- **Eliminar Recetas:** Los usuarios pueden eliminar recetas existentes.
+- **Context:** Se utilizó el hook de Context para que distintos componentes accedan a información sin tener que pasar props.
+- **Effect:** Se utilizó el hook de Effect para que almacenar las recetas en un estado recetas, cuando el estado receta se modifique.
 
-### Agregar Recetas
+## Tecnologías Utilizadas
 
-- Debe haber un formulario que permita a los usuarios agregar nuevas recetas.
-- Cada receta debe tener al menos un nombre y una descripción.
-- Al enviar el formulario, la nueva receta debe ser añadida a la lista de recetas.
+- **React**: Biblioteca de JavaScript para construir interfaces de usuario.
+- **React Router DOM**: Manejo de rutas en la aplicación.
+- **Context API**: Manejo del estado global para compartir recetas entre componentes.
+- **Material UI**: Framework para la creación de interfaces de usuario con un diseño limpio y moderno.
 
-### Mostrar Lista de Recetas
+## Instalación
 
-- La aplicación debe mostrar una lista de todas las recetas agregadas.
-- Cada receta en la lista debe mostrar su nombre y descripción.
-- La lista debe actualizarse automáticamente cuando se agrega o elimina una receta.
+1. **Clonar el repositorio:**
 
-### Eliminar Recetas
-
-- Cada receta en la lista debe tener una opción para ser eliminada.
-- Al hacer clic en la opción de eliminar, la receta debe ser removida de la lista.
-
-### Persistencia de Datos
-
-- Las recetas deben ser guardadas en el almacenamiento local del navegador (`localStorage`).
-- Al recargar la página, las recetas previamente guardadas deben ser cargadas y mostradas.
-
-## Requisitos Técnicos
-
-### Uso de Hooks
-
-- Utilizar `useState` para manejar el estado local de los componentes.
-- Utilizar `useEffect` para realizar efectos secundarios, como la carga inicial de recetas desde `localStorage` y la actualización del almacenamiento local cuando cambie la lista de recetas.
-- Utilizar `useContext` para compartir el estado de las recetas entre componentes sin necesidad de pasar props manualmente.
-
-### Componentes Reutilizables
-
-- La aplicación debe estar dividida en componentes reutilizables y bien estructurados.
-- Al menos debe haber componentes para el formulario de agregar recetas, la lista de recetas y cada elemento de receta.
-
-
-## Entrega
-
-- La aplicación debe ser funcional y cumplir con todos los requisitos mencionados.
-- El código debe ser limpio, bien comentado y seguir buenas prácticas de desarrollo.
+   ```bash
+   git clone https://github.com/simonlombardi/recipes-react.git
+   ```
+2. **Moverse hacia el directorio creado:**
+    ```bash
+    cd recipes-react
+    ```
+3. **Instalar dependencias:**
+    ```bash
+    npm install
+    ```
+4. **Correr el proyecto:**
+    ```bash
+    npm run dev
+    ```
