@@ -23,12 +23,6 @@ Crear una aplicación en React que permita a los usuarios gestionar recetas de c
 - Cada receta en la lista debe tener una opción para ser eliminada.
 - Al hacer clic en la opción de eliminar, la receta debe ser removida de la lista.
 
-### Marcar Recetas como Favoritas
-
-- Cada receta debe tener una opción para ser marcada como favorita.
-- Las recetas favoritas deben ser visualmente distintas (por ejemplo, mediante un icono o un estilo diferente).
-- Al hacer clic en la opción de favorito, la receta debe alternar entre favorita y no favorita.
-
 ### Persistencia de Datos
 
 - Las recetas deben ser guardadas en el almacenamiento local del navegador (`localStorage`).
@@ -47,10 +41,6 @@ Crear una aplicación en React que permita a los usuarios gestionar recetas de c
 - La aplicación debe estar dividida en componentes reutilizables y bien estructurados.
 - Al menos debe haber componentes para el formulario de agregar recetas, la lista de recetas y cada elemento de receta.
 
-### Estilo y Diseño
-
-- La interfaz debe ser clara y fácil de usar.
-- Se deben aplicar estilos para distinguir visualmente las recetas favoritas de las no favoritas.
 
 ## Entrega
 
