@@ -6,6 +6,18 @@ export const AuthProvider = ({ children }) => {
     const [users, setUsers] = useState(localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [])
     const [isAuth, setIsAuth] = useState(false)
 
+    useEffect(() => {
+        const userSesion = sessionStorage.getItem('userSesion')
+        if (userSesion){
+            setIsAuth(true)
+        }
+    }, [])
+
+    useEffect(() => {
+        console.log(users);
+        
+    }, [users])
+
     const register = (user, pass) => {
         if (users.find((u) => u.user === user)) {
             throw new Error("el nombre de usuario ingresado ya esta en uso");
@@ -16,10 +28,38 @@ export const AuthProvider = ({ children }) => {
                 user: user,
                 password: pass
             }
-            setUsers(...users, newUser)
+            const newListUsers = [...users, newUser]
+            setUsers(newListUsers)
+            localStorage.setItem('users', JSON.stringify(newListUsers))
+            window.location.replace('/login')
         }
     }
     const login = (user, pass) => {
-
+        if (users.length){
+            const userFound = users.find((u) => u.user === user && u.password === pass)
+            if (userFound) {
+                sessionStorage.setItem('userSesion', JSON.stringify(userFound))
+                setIsAuth(true)
+                window.location.replace('/')
+            }
+            else{
+                throw new Error("Credenciales incorrectas!");
+            }
+        }
+        else{
+            throw new Error("No hay usuarios creados");
+        }
     }
+
+    const logout = () => {
+        sessionStorage.removeItem('userSesion')
+        setIsAuth(false)
+        window.location.replace('/')
+    }
+
+    return(
+        <AuthContext.Provider value={{ isAuth, register, login, logout }}>
+            { children }
+        </AuthContext.Provider>
+    )
 }

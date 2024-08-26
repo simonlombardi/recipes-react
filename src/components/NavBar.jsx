@@ -11,11 +11,15 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import '../App.css'
+import { AuthContext } from "../context/AuthContext"
+import { useContext } from 'react';
 
 const pages = ['Recetas', 'Crear Receta'];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const {isAuth} = useContext(AuthContext)
+  const {logout} = useContext(AuthContext)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -65,7 +69,8 @@ function ResponsiveAppBar() {
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display:'flex', justifyContent:'space-between',flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{display:'flex'}}>
               <Button
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
@@ -80,6 +85,34 @@ function ResponsiveAppBar() {
                 CREAR RECETA
                 </Link>
               </Button>
+            </Box>
+              <Box sx={{display:'flex'}}> 
+              {isAuth ?  (<Button
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                <Link onClick={logout} className='link'>
+                Cerrar sesion
+                </Link>
+              </Button>) 
+              : 
+              (<>
+                  <Button
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    <Link to={'/login'} className='link'>
+                    Iniciar sesion
+                    </Link>
+                  </Button>
+                  <Button
+                    sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                    <Link to={'/register'} className='link'>
+                    Registrarse
+                    </Link>
+                  </Button>
+              </>
+              )}
+              </Box>
           </Box>
         </Toolbar>
       </Container>

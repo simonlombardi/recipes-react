@@ -1,0 +1,37 @@
+
+import { useContext, useState } from "react"
+import MultilineTextFields from "../components/Form"
+import { AuthContext } from "../context/AuthContext"
+import Button from '@mui/material/Button';
+import ResponsiveAppBar from "../components/NavBar";
+
+const Register = () => {
+    const [user, setUser] = useState(null)
+    const [password, setPassword] = useState(null)
+    const {register} = useContext(AuthContext)
+    const handleChangeUser = (e) => {
+        setUser(e.target.value)
+    }
+    const handleChangePass = (e) => {
+        setPassword(e.target.value)
+    }
+    const handleRegister = () => {
+        register(user, password)
+    }
+
+    return(
+        <>
+            <ResponsiveAppBar />
+            <div className="principal-container">
+                <div className="form-container">
+                    <h2 style={{marginBottom:'5px'}}>Register</h2>
+                    <MultilineTextFields multiline={false} rows={0} label={'Usuario'} input={user} handleInput={handleChangeUser}/>
+                    <MultilineTextFields multiline={false} rows={0} label={'Contraseña'} input={password} handleInput={handleChangePass}/>
+                    <Button style={{backgroundColor:'#8AA37B'}} onClick={handleRegister} variant="contained">Registrarse</Button>
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default Register
