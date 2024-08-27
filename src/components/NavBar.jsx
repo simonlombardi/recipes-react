@@ -91,7 +91,7 @@ function ResponsiveAppBar() {
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 <Link onClick={logout} className='link'>
-                Cerrar sesion
+                Cerrar sesión
                 </Link>
               </Button>) 
               : 
@@ -100,7 +100,7 @@ function ResponsiveAppBar() {
                     sx={{ my: 2, color: 'white', display: 'block' }}
                   >
                     <Link to={'/login'} className='link'>
-                    Iniciar sesion
+                    Iniciar sesión
                     </Link>
                   </Button>
                   <Button

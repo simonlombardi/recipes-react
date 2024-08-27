@@ -13,14 +13,13 @@ export const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    useEffect(() => {
-        console.log(users);
-        
-    }, [users])
 
     const register = (user, pass) => {
-        if (users.find((u) => u.user === user)) {
-            throw new Error("el nombre de usuario ingresado ya esta en uso");
+        if(!user || !pass){
+            alert("Ingrese los datos solicitados!")
+        }
+        else if (users.find((u) => u.user === user)) {
+           alert("el nombre de usuario ingresado ya esta en uso");
         }
         else{
             const newUser = {
@@ -43,11 +42,11 @@ export const AuthProvider = ({ children }) => {
                 window.location.replace('/')
             }
             else{
-                throw new Error("Credenciales incorrectas!");
+                alert("Credenciales incorrectas!");
             }
         }
         else{
-            throw new Error("No hay usuarios creados");
+            alert("No hay usuarios creados");
         }
     }
 

@@ -8,17 +8,13 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useNavigate } from 'react-router-dom';
 
-export default function BasicCard({ cardId, cardTitulo, cardDescription }) {
-  const {eliminarReceta} = useContext(RecetasContext)
+export default function CardDetail({ cardTitulo, cardDescription }) {
   const navigate = useNavigate()
 
-  const handleDelete = (id) => {
-    eliminarReceta(id)
-    navigate('/')
+  const handleGoBack = () => {
+    navigate(-1)
   }
-  const handleDetail = (id) => {
-    navigate(`/recipe-detail/${id}`)
-  }
+
 
   return (
     <Card sx={{ minWidth: 275, maxWidth: 350, }}>
@@ -31,8 +27,7 @@ export default function BasicCard({ cardId, cardTitulo, cardDescription }) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button style={{backgroundColor:'#D9534F', color:'white', cursor:'pointer'}} size="small" onClick={() => handleDelete(cardId)}>Eliminar</Button>
-        <Button style={{backgroundColor:'#4A90E2', color:'white', cursor:'pointer'}} size="small" onClick={() => handleDetail(cardId)}>Detalles</Button>
+        <Button style={{backgroundColor:'#4A90E2', color:'white', cursor:'pointer'}} size="small" onClick={handleGoBack}>Volver</Button>
       </CardActions>
     </Card>
   );

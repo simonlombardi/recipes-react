@@ -25,8 +25,8 @@ const Register = () => {
             <div className="principal-container">
                 <div className="form-container">
                     <h2 style={{marginBottom:'5px'}}>Register</h2>
-                    <MultilineTextFields multiline={false} rows={0} label={'Usuario'} input={user} handleInput={handleChangeUser}/>
-                    <MultilineTextFields multiline={false} rows={0} label={'Contraseña'} input={password} handleInput={handleChangePass}/>
+                    <MultilineTextFields multiline={false} rows={0} label={'Usuario'} input={user} handleInput={handleChangeUser} />
+                    <MultilineTextFields multiline={false} rows={0} label={'Contraseña'} input={password} handleInput={handleChangePass} type={'password'} />
                     <Button style={{backgroundColor:'#8AA37B'}} onClick={handleRegister} variant="contained">Registrarse</Button>
                 </div>
             </div>

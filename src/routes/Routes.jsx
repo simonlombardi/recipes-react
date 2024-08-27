@@ -5,6 +5,7 @@ import Login from "../pages/Login"
 import Register from "../pages/Register"
 import { useContext } from "react"
 import { AuthContext } from "../context/AuthContext"
+import RecipeDetail from "../pages/RecipeDetail"
 
 
 const Routes = () => {
@@ -14,31 +15,40 @@ const Routes = () => {
         path: '/',
         element: <Index />
     }, {
-        path: '/new-recipe/',
+        path: '/new-recipe',
         element: <NewRecipe />
     },
     {
-        path: '/login/',
+        path: '/recipe-detail/:id',
+        element:  <RecipeDetail />
+    },
+    {
+        path: '/login',
         element: <Login />
     },
     {
-        path: '/register/',
+        path: '/register',
         element: <Register />
     }])
 
     const unAuthRoutes = createBrowserRouter([{
         path: '/',
         element: <Index />
-    }, {
-        path: '/new-recipe/',
+    }, 
+    {
+        path: '/new-recipe',
         element: <Navigate to='/login' />
     },
     {
-        path: '/login/',
+        path: '/recipe-detail/:id',
+        element: <Navigate to='/login' />
+    },
+    {
+        path: '/login',
         element: <Login />
     },
     {
-        path: '/register/',
+        path: '/register',
         element: <Register />
     }])
 
