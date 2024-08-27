@@ -4,7 +4,9 @@ Simple aplicación web que permite crear y eliminar recetas. Cada receta consist
 
 ## Características
 
+- **Autorizacion:** Se implemento la logica para crear usuario, hacer login y logout, ademas de rutas publicas y protegidas.
 - **Crear Recetas:** Los usuarios pueden agregar nuevas recetas proporcionando un título y una descripción.
+- **Ver Detalles:** Los usuarios pueden ver los detalles de una receta.
 - **Eliminar Recetas:** Los usuarios pueden eliminar recetas existentes.
 - **Context:** Se utilizó el hook de Context para que distintos componentes accedan a información sin tener que pasar props.
 - **Effect:** Se utilizó el hook de Effect para que almacenar las recetas en un estado recetas, cuando el estado receta se modifique.
